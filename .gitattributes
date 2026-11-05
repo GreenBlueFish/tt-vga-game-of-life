@@ -1,0 +1,6 @@
+# Keep shell scripts and Makefiles LF so they run under bash/make.
+*.sh    text eol=lf
+Makefile text eol=lf
+# Treat rendered images as binary.
+*.png   binary
+*.svg   text

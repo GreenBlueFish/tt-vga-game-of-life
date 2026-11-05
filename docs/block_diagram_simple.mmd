@@ -1,0 +1,22 @@
+flowchart LR
+    IN([ui_in<br/>switches]):::pin
+    CLK([clk / rst_n]):::pin
+
+    subgraph CHIP["tt_um_vga_interface"]
+        direction LR
+        VGA["VGA timing"]:::blk
+        GOL["Game of Life<br/>core"]:::blk
+        RND["renderer"]:::blk
+        VGA --> GOL
+        VGA --> RND
+        GOL --> RND
+    end
+
+    OUT([uo_out<br/>VGA monitor]):::pin
+
+    IN --> GOL
+    CLK --> CHIP
+    RND --> OUT
+
+    classDef pin fill:#cfe0ff,stroke:#2d5bbf,color:#0b1b3a,stroke-width:2px;
+    classDef blk fill:#d6f5df,stroke:#2e8b57,color:#0b2b17,stroke-width:2px;
